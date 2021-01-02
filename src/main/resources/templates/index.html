@@ -1,10 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Recipe Home</title>
+<meta charset="ISO-8859-1">
+<title>List of Recipes</title>
 </head>
 <body>
-<h1>My Recipes!</h1>
+	<h1 th:text="'List of Recipes'">List of Recipes...</h1>
+	<div th:each="rec : ${recipes}">
+		<h2 th:text="${rec.description}">Description</h2>
+		<h3 th:text="'Notes'">notes title</h3>
+		<div th:text="${rec.notes.recipeNotes}">Notes</div>
+		<h3 th:text="'Ingredients'">ingredients title</h3>
+		<table>
+			<tr th:each="ing : ${rec.ingredients}">
+				<td th:text="${ing.amount+' '+ing.uom.description+' '+ing.description}">ingrident</td>
+			</tr>
+		</table>
+		<h3 th:text="'Directions'">directions title</h3>
+		<div th:text="${rec.directions}">Directions</div>
+	
+	</div>
+	
+<!-- 	<table id="recipes" class="table table-striped"> -->
+<!-- 	<thead> -->
+<!-- 	<tr> -->
+<!-- 		<th>Id</th> -->
+<!-- 		<th>Description</th> -->
+<!-- 		<th>Categories</th> -->
+<!-- 		<th>Cook time</th> -->
+<!-- 		<th>Prep time</th> -->
+<!-- 		<th>Notes</th> -->
+<!-- 		<th>Directions</th> -->
+<!-- 		<th>Ingredients</th> -->
+<!-- 	</tr> -->
+<!-- 	</thead> -->
+<!-- 	<tbody> -->
+<!-- 		<tr th:each="vet : ${vets}"> -->
+<!-- 			<td th:text="${vet.id}">1</td> -->
+<!-- 			<td th:text="${vet.firstName}">Joe</td> -->
+<!-- 			<td th:text="${vet.lastName}">Black</td> -->
+<!-- 		</tr> -->
+<!-- 	</tbody> -->
+<!-- 	</table> -->
 </body>
 </html>
