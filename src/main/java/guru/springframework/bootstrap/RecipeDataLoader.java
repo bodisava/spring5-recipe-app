@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashSet;
 
+import javax.transaction.Transactional;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -42,6 +44,7 @@ public class RecipeDataLoader implements CommandLineRunner{
 		}
 	}
 	
+	@Transactional
 	private void loadData() {
 		Category catMexican = categoryRepository.findByDescription("Mexican").get();
 		Category catAmerican = categoryRepository.findByDescription("American").get();
